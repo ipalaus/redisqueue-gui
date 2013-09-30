@@ -32,13 +32,4 @@ Route::group(array('prefix' => 'api'), function()
 
 });
 
-Route::get('job', function()
-{
-	Queue::push(function($job)
-	{
-		echo "hi"; sleep(2);
-		$job->delete();
-	}, array(), 'test');
-});
-
-Route::get('{queue}/{type?}', 'HomeController@show');
+//Route::get('{queue}/{type?}', 'HomeController@show');
