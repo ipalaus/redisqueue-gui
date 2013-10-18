@@ -13,10 +13,14 @@
 
 Route::get('/', function()
 {
-	$redisQueue = new RedisQueue;
-	$queues = $redisQueue->getQueues();
+	return View::make('index')->with('queues', RedisQueue::getAll());
+});
 
-	return View::make('layout')->nest('content', 'index', array('queues' => $queues));
+Route::get('queue/{name}/{type?}', function($name, $type = 'queued')
+{
+	$items = RedisQueue::getItems($name, $type);
+
+	return View::make('queue')->with('items', $items);
 });
 
 Route::group(array('prefix' => 'api'), function()
@@ -31,14 +35,3 @@ Route::group(array('prefix' => 'api'), function()
 	});
 
 });
-
-Route::get('job', function()
-{
-	Queue::push(function($job)
-	{
-		echo "hi"; sleep(2);
-		$job->delete();
-	}, array());
-});
-
-//Route::get('{queue}/{type?}', 'HomeController@show');

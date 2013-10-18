@@ -22,13 +22,13 @@
 		</nav>
 
 		<div class="container">
-		@if (isset($content))
-			{{ $content }}
-		@endif
+		@yield('content')
 		</div>
 
+		@section('js')
 		<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
 		<script>window.jQuery || document.write('<script src="/js/jquery-2.0.3.min.js"><\/script>')</script>
 		<script src="/js/app.js"></script>
+		@show
 	</body>
 </html>

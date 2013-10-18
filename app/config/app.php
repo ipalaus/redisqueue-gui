@@ -82,7 +82,6 @@ return array(
 
 		'Illuminate\Foundation\Providers\ArtisanServiceProvider',
 		'Illuminate\Foundation\Providers\CommandCreatorServiceProvider',
-		'Illuminate\Session\CommandsServiceProvider',
 		'Illuminate\Foundation\Providers\ComposerServiceProvider',
 		'Illuminate\Routing\ControllerServiceProvider',
 		'Illuminate\Encryption\EncryptionServiceProvider',
@@ -98,6 +97,8 @@ return array(
 		'Illuminate\Foundation\Providers\ServerServiceProvider',
 		'Illuminate\Foundation\Providers\TinkerServiceProvider',
 		'Illuminate\View\ViewServiceProvider',
+
+		'RedisQueue\RedisQueueServiceProvider',
 
 	),
 
@@ -163,6 +164,8 @@ return array(
 		'URL'             => 'Illuminate\Support\Facades\URL',
 		'Validator'       => 'Illuminate\Support\Facades\Validator',
 		'View'            => 'Illuminate\Support\Facades\View',
+
+		'RedisQueue'      => 'RedisQueue\Facades\RedisQueue',
 
 	),
 

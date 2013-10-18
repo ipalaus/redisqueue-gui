@@ -8,9 +8,11 @@
 	},
 	"autoload": {
 		"classmap": [
-			"app/tests/TestCase.php",
-			"app/RedisQueue.php"
-		]
+			"app/tests/TestCase.php"
+		],
+		"psr-0": {
+			"RedisQueue": "app/"
+		}
 	},
 	"scripts": {
 		"post-install-cmd": [
