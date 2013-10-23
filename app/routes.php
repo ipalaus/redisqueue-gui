@@ -13,14 +13,37 @@
 
 Route::get('/', function()
 {
-	return View::make('index')->with('queues', RedisQueue::getAll());
+	$queues = RedisQueue::getAll();
+
+	return View::make('index')->withQueues($queues);
 });
 
-Route::get('queue/{name}/{type?}', function($name, $type = 'queued')
+Route::get('queue/{name}/{type}', function($name, $type)
 {
 	$items = RedisQueue::getItems($name, $type);
+	$listType = RedisQueue::type("queues:{$name}:{$type}");
 
-	return View::make('queue')->with('items', $items);
+	// jobs are stored as json encoded, we will decode them to create our list
+	$items = $items->map(function($item, $index) use ($listType)
+	{
+		$object = json_decode($item);
+
+		$object->encoded = $item;
+		$object->delete  = ($listType === 'list') ? $index : urlencode($item);
+
+		return $object;
+	});
+
+	return View::make('queue')->with(['name' => $name, 'type' => $type, 'items' => $items]);
+});
+
+Route::get('queue/{name}/{type}/delete', function($name, $type)
+{
+	$value = Input::get('value');
+
+	RedisQueue::remove("queues:{$name}:{$type}", $value);
+
+	return Redirect::to("queue/{$name}/{$type}");
 });
 
 Route::group(array('prefix' => 'api'), function()

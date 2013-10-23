@@ -1,18 +1,16 @@
 {
 	"name": "ipalaus/redisqueue-gui",
 	"description": "A GUI interface for Illuminate's RedisQueue driver.",
-	"keywords": ["redis", "queue", "redisqueue", "gui"],
+	"keywords": ["redis", "queue", "redisqueue"],
 	"license": "MIT",
 	"require": {
-		"laravel/framework": "dev-master"
+		"laravel/framework": "dev-master",
+		"ipalaus/redisqueue": "dev-master"
 	},
 	"autoload": {
 		"classmap": [
 			"app/tests/TestCase.php"
-		],
-		"psr-0": {
-			"RedisQueue": "app/"
-		}
+		]
 	},
 	"scripts": {
 		"post-install-cmd": [

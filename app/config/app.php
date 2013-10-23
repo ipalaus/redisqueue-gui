@@ -98,7 +98,7 @@ return array(
 		'Illuminate\Foundation\Providers\TinkerServiceProvider',
 		'Illuminate\View\ViewServiceProvider',
 
-		'RedisQueue\RedisQueueServiceProvider',
+		'Ipalaus\RedisQueue\RedisQueueServiceProvider',
 
 	),
 
@@ -165,7 +165,7 @@ return array(
 		'Validator'       => 'Illuminate\Support\Facades\Validator',
 		'View'            => 'Illuminate\Support\Facades\View',
 
-		'RedisQueue'      => 'RedisQueue\Facades\RedisQueue',
+		'RedisQueue'      => 'Ipalaus\RedisQueue\Facades\RedisQueue',
 
 	),
 

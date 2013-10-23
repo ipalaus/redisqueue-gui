@@ -17,11 +17,13 @@
 		<nav class="navbar navbar-default" role="navigation">
 			<!-- Collect the nav links, forms, and other content for toggling -->
 			<div class="collapse navbar-collapse navbar-ex1-collapse">
-				<a class="navbar-brand" href="#">RedisQueue GUI</a>
+				<a class="navbar-brand" href="/">RedisQueue GUI</a>
 			</div><!-- /.navbar-collapse -->
 		</nav>
 
 		<div class="container">
+		@section('heading')
+		@show
 		@yield('content')
 		</div>
 

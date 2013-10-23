@@ -18,9 +18,9 @@
 		@foreach ($queues as $name => $queue)
 		<tr>
 			<td><strong>{{ $name }}</strong></td>
-			<td>{{ $queue['queued'] }}</td>
-			<td>{{ $queue['delayed'] }}</td>
-			<td>{{ $queue['reserved'] }}</td>
+			<td><a href="queue/{{ $name }}/queued">{{ $queue['queued'] }}</a></td>
+			<td><a href="queue/{{ $name }}/delayed">{{ $queue['delayed'] }}</a></td>
+			<td><a href="queue/{{ $name }}/reserved">{{ $queue['reserved'] }}</a></td>
 			<td>{{ $queue['queued'] + $queue['delayed'] + $queue['reserved'] }}</td>
 		</tr>
 		@endforeach
